@@ -7,11 +7,17 @@ import (
 	uuid "github.com/satori/go.uuid"
 )
 
+func init() {
+	govalidator.SetFieldsRequiredByDefault(true)
+}
+
 // User represents a user in the application
 type User struct {
-	Base  `valid:"required"`
-	Name  string `json:"name" valid:"notnull"`
-	Email string `json:"email" valid:"email,notnull"`
+	ID        string    `json:"id" valid:"uuid"`
+	CreatedAt time.Time `json:"created_at" valid:"-"`
+	UpdatedAt time.Time `json:"apdated_at" valid:"-"`
+	Name      string    `json:"name" valid:"notnull"`
+	Email     string    `json:"email" valid:"email,notnull"`
 }
 
 func (user *User) isValid() error {
