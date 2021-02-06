@@ -44,6 +44,7 @@ func (t *TransactionUseCase) Confirm(transactionId string) (*model.Transaction, 
 	}
 
 	transaction.Status = model.TransactionConfirmed
+	err = t.TransactionRepository.Save(transaction)
 	if err != nil {
 		return nil, err
 	}
@@ -59,6 +60,7 @@ func (t *TransactionUseCase) Complete(transactionId string) (*model.Transaction,
 	}
 
 	transaction.Status = model.TransactionCompleted
+	err = t.TransactionRepository.Save(transaction)
 	if err != nil {
 		return nil, err
 	}
@@ -75,6 +77,7 @@ func (t *TransactionUseCase) Error(transactionId string, reason string) (*model.
 
 	transaction.Status = model.TransactionError
 	transaction.CancelDescription = reason
+	err = t.TransactionRepository.Save(transaction)
 	if err != nil {
 		return nil, err
 	}
