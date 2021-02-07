@@ -106,8 +106,6 @@ export class TransactionController implements OnModuleInit, OnModuleDestroy {
 
   @MessagePattern(`bank${process.env.BANK_CODE}`)
   async doTransaction(@Payload() message) {
-    console.log('Recebeu', message.value.status);
-
     if (message.value.status === 'pending') {
       await this.receivedTransaction(message.value);
     }
