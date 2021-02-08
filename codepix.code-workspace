@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "apacke-kafka"
+		},
+		{
+			"path": "codepix"
+		},
+		{
+			"path": "bank-api"
+		},
+		{
+			"path": "bank-frontend"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"CODEPIX",
+			"GRPC",
+			"TYPEORM",
+			"microservices",
+			"nestjs",
+			"varchar"
+		]
+	}
+}
